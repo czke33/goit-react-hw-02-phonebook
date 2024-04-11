@@ -1,12 +1,31 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import Contact from './Contact';
+import PropTypes from 'prop-types';
 
-const Contact = ({ children }) => {
-  return <li>{children}</li>;
+const ContactList = (props) => {
+  const { contacts, filter, deleteFunction } = props;
+  return (
+    <ul>
+      {contacts
+        .filter((contact) => contact.name.toLowerCase().includes(filter.toLowerCase()))
+        .map((contact) => {
+          return (
+            <Contact key={contact.id}>
+              {contact.name} : {contact.number}{' '}
+              <button id={contact.id} onClick={deleteFunction}>
+                Delete
+              </button>
+            </Contact>
+          );
+        })}
+    </ul>
+  );
 };
 
-Contact.propTypes = {
-  children: PropTypes.node.isRequired,
+ContactList.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  filter: PropTypes.string.isRequired,
+  deleteFunction: PropTypes.func.isRequired,
 };
 
-export default Contact;
+export default ContactList;

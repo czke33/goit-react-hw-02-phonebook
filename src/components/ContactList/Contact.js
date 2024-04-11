@@ -1,33 +1,13 @@
 import React from 'react';
-import Contact from './Contact';
 import PropTypes from 'prop-types';
+import style from './contactlist.module.css';
 
-const ContactList = props => {
-  const { contacts, filter, deleteFunction } = props;
-  return (
-    <ul>
-      {contacts
-        .filter(contact =>
-          contact.name.toLowerCase().includes(filter.toLowerCase())
-        )
-        .map(contact => {
-          return (
-            <Contact key={contact.id}>
-              {contact.name} : {contact.number}{' '}
-              <button id={contact.id} onClick={deleteFunction}>
-                Delete
-              </button>
-            </Contact>
-          );
-        })}
-    </ul>
-  );
+const Contact = ({ children }) => {
+  return <li className={style.list}>{children}</li>;
 };
 
-ContactList.propTypes = {
-  contacts: PropTypes.array.isRequired,
-  filter: PropTypes.string.isRequired,
-  deleteFunction: PropTypes.func.isRequired,
+Contact.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default ContactList;
+export default Contact;
