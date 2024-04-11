@@ -8,10 +8,10 @@ import ContactList from "./ContactList/ContactList";
 class App extends Component {
   state = {
     contacts: [
-      { id: nanoid(), name: "Rosie Simpson", number: "459-12-56" },
-      { id: nanoid(), name: "Hermione Kline", number: "443-89-12" },
-      { id: nanoid(), name: "Eden Clements", number: "645-17-79" },
-      { id: nanoid(), name: "Annie Copeland", number: "227-91-26" },
+      { id: nanoid(), name: "Molnar Katalin", number: "478-789-231" },
+      { id: nanoid(), name: "Kicsi Tucsok", number: "789-456-123" },
+      { id: nanoid(), name: "Molnar Tamas", number: "789-789-789" },
+      { id: nanoid(), name: "Molnar-Aczel Zsuzsanna", number: "0774-956-541" },
     ],
     filter: "",
   };
